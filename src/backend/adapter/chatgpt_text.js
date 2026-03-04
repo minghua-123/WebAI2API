@@ -198,7 +198,7 @@ async function generate(context, prompt, imgPaths, modelId, meta = {}) {
                             }
 
                             // patch 操作中的 append
-                            if (data.o === 'patch' && Array.isArray(data.v)) {
+                            if (Array.isArray(data.v)) {
                                 for (const patch of data.v) {
                                     if (patch.o === 'append' && patch.p === '/message/content/parts/0' && patch.v) {
                                         textContent += patch.v;
